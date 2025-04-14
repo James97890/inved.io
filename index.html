@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Жәдігер & Гүлнұр - Қыз ұзату</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: url('https://i.imgur.com/aPqKBAo.png') no-repeat center top;
+      background-size: 100% 100%;
+      background-position: center;
+      background-attachment: fixed;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      padding: 20px;
+      max-width: 800px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      display: none;
+    }
+
+    .container.active {
+      display: block;
+    }
+
+    h1 {
+      font-family: "Lobster", sans-serif;
+      font-size: 3em;
+      margin-top: 20px;
+      color: #b30059;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.5em;
+      color: #cc0066;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .nav-buttons button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff66b2;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .nav-buttons button:hover {
+      background-color: #cc0066;
+    }
+
+    .rings {
+      width: 220px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin: 20px 0;
+    }
+
+    .audio-button-wrapper {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin: 30px auto;
+      cursor: pointer;
+    }
+
+    .gif-frame {
+      position: absolute;
+      top: -30px;
+      left: -30px;
+      width: 180px;
+      height: 180px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .photo-button {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .photo-button img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .below-image {
+      margin: 10px 0 30px;
+      font-size: 1.1em;
+      line-height: 1.6;
+      white-space: pre-line;
+      color: #660033;
+    }
+
+    .calendar {
+      margin: 20px auto;
+      max-width: 320px;
+      border-collapse: collapse;
+    }
+
+    .calendar td, .calendar th {
+      border: 1px solid #ccc;
+      padding: 8px;
+      font-size: 1em;
+    }
+
+    .calendar th {
+      background-color: #ffcce6;
+    }
+
+    .highlight {
+      background-color: #ff80bf;
+      color: white;
+      border-radius: 50%;
+    }
+
+    .timer {
+      font-size: 1.5em;
+      margin: 20px 0;
+      color: #880044;
+      font-weight: bold;
+    }
+
+    .gis-button-container {
+  margin-top: 30px;
+}
+
+.gis-button {
+  display: inline-block;
+  width: 92px;
+  height: 92px;
+  background-image: url('https://optim.tildacdn.pro/tild3630-6232-4566-b064-616130656130/-/cover/92x92/center/center/-/format/webp/unnamed.png');
+  background-size: cover;
+  border-radius: 12px;
+}
+
+    .info {
+      font-size: 1.1em;
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container active" id="page1">
+    <h1>Гүлнұр</h1>
+    <h2>Ақ босағаға аттану</h2>
+    <img src="https://optim.tildacdn.pro/tild6530-3238-4332-b466-616665356534/-/resize/240x/-/format/webp/___79.png" alt="Wedding rings" class="rings" />
+    <div class="audio-button-wrapper" onclick="toggleAudio()">
+      <img class="gif-frame" src="https://optim.tildacdn.pro/tild6537-6530-4434-b766-383831656136/-/resize/240x/-/format/webp/_3.png" alt="Frame" />
+      <div class="photo-button">
+        <img src="https://optim.tildacdn.pro/tild6132-6638-4764-b632-623263306137/-/cover/120x120/center/center/-/format/webp/pngegg_3.png" alt="Button" />
+      </div>
+    </div>
+    <audio id="myAudio" src="waf2em.mp3"></audio>
+    <div class="nav-buttons">
+      <span></span>
+      <button onclick="goToPage(2)">Келесі бет</button>
+    </div>
+  </div>
+
+  <div class="container" id="page2">
+    <div class="below-image">
+      Құрметті ағайын-туыс, ардақты дос-жаран!
+      Ортақ қуанышымызбен бөлісуге асығамыз!
+      Сіздерді өміріміздің ең бір ерекше әрі толқынысты сәтіне – аяулы қызымыз Гүлнұрдың
+      ұзату тойына арналған салтанатты кешіміздің құрметті қонағы болуға шақырамыз.
+      Ақ босаға аттап, жаңа өмірге қадам басқалы тұрған қызымыздың осы бір қуанышты сәтінде
+      жанымыздан табылып, ақ баталарыңызды, ақ тілектеріңізді арнайсыздар деген сенімдеміз.
+    
+      Ізгі ниетпен,
+      Той иелері: Бекбосын – Зоя
+    </div>
+    <div class="nav-buttons">
+      <button onclick="goToPage(1)">Артқа</button>
+      <button onclick="goToPage(3)">Келесі бет</button>
+    </div>
+  </div>
+
+  <div class="container" id="page3">
+    <table class="calendar">
+      <tr><th>Дс</th><th>Сс</th><th>Ср</th><th>Бс</th><th>Жм</th><th>Сн</th><th>Жк</th></tr>
+      <tr><td></td><td></td><td></td><td></td><td>1</td><td>2</td><td>3</td></tr>
+      <tr><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td class="highlight">10</td></tr>
+    </table>
+    <div class="timer" id="countdown"></div>
+    <div class="nav-buttons">
+      <button onclick="goToPage(2)">Артқа</button>
+      <button onclick="goToPage(4)">Келесі бет</button>
+    </div>
+  </div>
+
+  <div class="container" id="page4">
+    <div class="info">
+      <p>Той болатын күні: <strong>10-шы тамыз 2025ж</strong></p>
+      <p>Той басталу уақыты: <strong>13:00 - де</strong></p>
+      <p>Мекен-жайымыз:<br> Қарағанды қаласы, 16-шы микрорайон, 41/3, <br><strong>Дастан мейрамханасы</strong></p>
+    </div>
+
+    <div class="gis-button-container">
+      <a class="gis-button" 
+         href="https://go.2gis.com/XyCE0" 
+         target="_blank"
+         aria-label="2ГИС карта"
+         role="img">
+      </a>
+    </div>
+
+    <div class="nav-buttons">
+      <button onclick="goToPage(3)">Артқа</button>
+      <span></span>
+    </div>
+  </div>
+
+  <script>
+    function goToPage(pageNumber) {
+      document.querySelectorAll('.container').forEach(container => {
+        container.classList.remove('active');
+      });
+      document.getElementById('page' + pageNumber).classList.add('active');
+    }
+
+    function toggleAudio() {
+      const audio = document.getElementById('myAudio');
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+    const countdown = document.getElementById("countdown");
+    const eventDate = new Date("2025-08-10T00:00:00").getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+      if (distance < 0) {
+        countdown.innerHTML = "Мероприятие прошло";
+        return;
+      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdown.innerHTML = `Қалған уақыт: ${days} күн, ${hours} сағ, ${minutes} мин, ${seconds} сек`;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
